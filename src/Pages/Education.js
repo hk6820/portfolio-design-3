@@ -17,7 +17,7 @@ export default function Education({ sectionTitle, education }) {
             </h3>
             <p className="text-xl font-semibold bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent mb-8">{edu.institution}</p>
             <p className="text-sm text-slate-400 mb-3">{edu.duration}</p>
-            <p className="text-slate-300">{edu.note}</p>
+            <p className="text-slate-300">{edu.description}</p>
           </div>
         ))}
       </div>

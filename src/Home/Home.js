@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 
 export default function Home({
-  name,
-  subtitle,
-  description,
-  resumeLink,
-  imageSrc,
+  name = "Your Name",
+  subtitle = "Developer",
+  description = "Welcome to my portfolio",
+  resumeLink = "#",
+  imageSrc = "/assets/icons/colorphoto.png",
 }) {
   return (
     <section
-      id="aboutme"
+      id="home"
       className="relative text-white min-h-screen flex items-center bg-[#0f172a] overflow-hidden"
     >
       <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-12 px-6 lg:px-20">
@@ -20,7 +20,7 @@ export default function Home({
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-2">
-            HAY! I’M {name.split(" ")[0].toUpperCase()}
+            HAY! I'M {name ? name.split(" ")[0].toUpperCase() : "DEVELOPER"}
           </h1>
 
           <motion.h2
@@ -35,7 +35,7 @@ export default function Home({
               },
             }}
           >
-            {subtitle.split("").map((char, index) => (
+            {(subtitle || "Developer").split("").map((char, index) => (
               <motion.span
                 key={index}
                 variants={{
@@ -53,14 +53,15 @@ export default function Home({
           </p>
 
           <div className="flex items-center gap-4 flex-wrap">
-            <a
-              href={resumeLink}
-              download
-              className="px-6 py-3 text-sm font-semibold bg-blue-600 hover:bg-blue-500 rounded-full transition duration-300"
-            >
-              Download CV
-            </a>
-          
+            {resumeLink && resumeLink !== "#" && (
+              <a
+                href={resumeLink}
+                download
+                className="px-6 py-3 text-sm font-semibold bg-blue-600 hover:bg-blue-500 rounded-full transition duration-300"
+              >
+                Download CV
+              </a>
+            )}
           </div>
         </div>
 

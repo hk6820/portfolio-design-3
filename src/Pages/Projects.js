@@ -60,7 +60,7 @@ export default function Projects({ sectionTitle, projects }) {
               <div className="mb-4 text-left">
                 <span className="text-xs text-slate-500">Tech Used:</span>
                 <ul className="flex flex-wrap gap-2 mt-2">
-                  {project.tech.map((t, i) => (
+                  {project.tags.map((t, i) => (
                     <li
                       key={i}
                       className="bg-slate-700 text-xs px-2 py-1 rounded-full text-white"
@@ -74,7 +74,7 @@ export default function Projects({ sectionTitle, projects }) {
               {/* Buttons */}
               <div className="mt-auto flex flex-wrap justify-between gap-3">
                 <a
-                  href={project.live}
+                  href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -97,19 +97,19 @@ export default function Projects({ sectionTitle, projects }) {
                     e.currentTarget.style.transform = 'scale(1)';
                   }}
                 >
-                  Live preview
+                  View Project
                 </a>
 
-
-
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-white text-white px-4 py-2 rounded-full text-sm font-medium hover:border-cyan-400 hover:text-cyan-400 transition duration-300"
-                >
-                  GitHub
-                </a>
+                {project.link && project.link.includes('github') && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-white text-white px-4 py-2 rounded-full text-sm font-medium hover:border-cyan-400 hover:text-cyan-400 transition duration-300"
+                  >
+                    GitHub
+                  </a>
+                )}
               </div>
             </div>
           </div>
